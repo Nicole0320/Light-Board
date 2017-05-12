@@ -2,8 +2,19 @@ var degree = 0;
 var backDeg = 180;
 var visible = 'front';
 
-$('.flip-container').on('click', function(e){
+$('.flip-container').on('swiperight', function(e){
     degree += 180;
+    $(this).children('.front').css({
+        'transform': 'rotateY('+(degree)+'deg)',
+        'visibility': visible === 'front'? 'hidden':'visible'
+    });
+    $(this).children('.back').css({
+        'transform': 'rotateY('+(degree+180)+'deg)',
+        'visibility': visible === 'back'? 'hidden':'visible'
+    });
+    visible = visible === 'front'? 'back':'front';
+}).on('swipeleft',function(e){
+    degree -= 180;
     $(this).children('.front').css({
         'transform': 'rotateY('+(degree)+'deg)',
         'visibility': visible === 'front'? 'hidden':'visible'
