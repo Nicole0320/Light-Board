@@ -31,7 +31,7 @@ $('.flip-container').on('swiperight', function(e){
 
 //初始化
 $(window).on('ready',function(){
-    let height = $(window).outerHeight(true);
+    let height = document.documentElement.clientHeight;
     $('body').innerHeight(height);
     adjustFontSize();
 }).on('shake',function(){
