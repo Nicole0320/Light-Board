@@ -26,7 +26,33 @@ $('.flip-container').on('swiperight', function(e){
     visible = visible === 'front'? 'back':'front';
 });
 
-$('#text').on('click',function(e){
-    e.stopPropagation();
-    $(this).css('contenteditable','');
-});
+$(window).on('ready',adjustFontSize);
+
+$('#text').on('keyup',adjustFontSize);
+
+function adjustFontSize(){
+    let $this = $('#text');
+    let windowWidth = $(window).innerWidth();
+    console.log($this.innerWidth());
+    console.log(windowWidth);
+    let clock = setInterval(function(){
+        let fontsize = parseInt($this.css('font-size'));
+        if($this.innerWidth()<windowWidth-40){
+            $this.css({
+                'font-size': fontsize+2+'px',
+                'margin-left': -($this.innerWidth()/2),
+                'margin-top': -($this.innerHeight()/2),
+            });
+        }
+        else if($this.innerWidth()>windowWidth){
+            $this.css({
+                'font-size': fontsize-2+'px',
+                'margin-left': -($this.innerWidth()/2),
+                'margin-top': -($this.innerHeight()/2),
+            });
+        }
+        else{
+            clearInterval(clock);
+        }
+    },5)
+}self
