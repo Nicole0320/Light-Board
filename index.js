@@ -1,6 +1,8 @@
 var degree = 0;
 var backDeg = 180;
 var visible = 'front';
+//16进制编码数组
+var hexCodes = ['1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f'];
 
 //滑动翻转效果
 $('.flip-container').on('swiperight', function(e){
@@ -28,8 +30,10 @@ $('.flip-container').on('swiperight', function(e){
 });
 
 //初始化
-$(window).on('ready',adjustFontSize)
-.on('resize',adjustFontSize);
+$(window).on('ready',function(){
+    adjustFontSize();
+    // setColor();
+}).on('shake',setColor).on('resize',adjustFontSize);
 
 $('#text').on('keyup',adjustFontSize);
 
@@ -58,4 +62,17 @@ function adjustFontSize(){
             clearInterval(clock);
         }
     },5)
-}self
+}
+
+function setColor(){
+    $('.front').css('background-color', getColorCode());
+    $('#text').css('color',getColorCode());
+}
+
+function getColorCode(){
+    let color = '#';
+    for(let i=0; i<6; i++){
+        color += hexCodes[Math.floor(Math.random()*16)];
+    }
+    return color;
+}
