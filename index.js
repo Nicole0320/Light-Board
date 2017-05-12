@@ -2,6 +2,7 @@ var degree = 0;
 var backDeg = 180;
 var visible = 'front';
 
+//滑动翻转效果
 $('.flip-container').on('swiperight', function(e){
     degree += 180;
     $(this).children('.front').css({
@@ -26,7 +27,9 @@ $('.flip-container').on('swiperight', function(e){
     visible = visible === 'front'? 'back':'front';
 });
 
-$(window).on('ready',adjustFontSize);
+//初始化
+$(window).on('ready',adjustFontSize)
+.on('resize',adjustFontSize);
 
 $('#text').on('keyup',adjustFontSize);
 
