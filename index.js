@@ -32,7 +32,6 @@ $('.flip-container').on('swiperight', function(e){
 //初始化
 $(window).on('ready',function(){
     adjustFontSize();
-    setColor();
 }).on('shake',function(){
     console.log('shake shake');
     setColor();

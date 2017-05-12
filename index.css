@@ -8,6 +8,7 @@
     text-align: center;
     transition: 1s;
     transform-style: preserve-3d;
+    color: #333;
 }
 
 .flip-container>div{
@@ -37,4 +38,17 @@ h1#text{
     position: absolute;
     top: 50%;
     left: 50%;
+}
+
+#code>a{
+    margin: auto;
+    text-decoration: none;
+    color: #fff;
+    background-color: #222;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+#code>a:hover{
+    background-color: #ccc;
 }
