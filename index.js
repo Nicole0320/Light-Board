@@ -43,9 +43,11 @@ $('#text').on('keyup',adjustFontSize);
 
 function adjustFontSize(){
     let $this = $('#text');
+    console.log($this.html());
+    if($this.html() === ''){
+        return;
+    }
     let windowWidth = $(window).innerWidth();
-    console.log($this.innerWidth());
-    console.log(windowWidth);
     let clock = setInterval(function(){
         let fontsize = parseInt($this.css('font-size'));
         if($this.innerWidth()<windowWidth-40){
