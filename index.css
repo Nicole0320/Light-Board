@@ -40,6 +40,12 @@ h1#text{
     left: 50%;
 }
 
+.back i{
+    font-style: normal;
+    color: #666;
+    font-size: 0.8em;
+}
+
 #code>a{
     margin: auto;
     text-decoration: none;
