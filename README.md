@@ -1,5 +1,6 @@
 # Light Board - 在线灯牌
 [点击这里查看效果](https://nicole0320.github.io/Light-Board/index.html)
+使用移动设备打开会有更好的效果哦~
 
 - 点击文字可编辑文字内容
 - 字体大小自动填满屏幕
