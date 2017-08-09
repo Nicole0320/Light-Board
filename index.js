@@ -1,6 +1,7 @@
 var degree = 0;
 var backDeg = 180;
 var visible = 'front';
+var clock;
 //16进制编码数组
 var hexCodes = ['1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f'];
 
@@ -35,11 +36,40 @@ $(window).on('ready',function(){
     $('body').innerHeight(height);
     adjustFontSize();
 }).on('shake',function(){
-    console.log('shake shake');
     setColor();
 }).on('resize',adjustFontSize);
 
 $('#text').on('keyup',adjustFontSize);
+
+//控制是否摇一摇变色
+$('.setting .shake-change-color').on('click',function(){
+    $this = $(this)
+    if($this.hasClass('open')){
+        $this.removeClass('open');
+        $(window).off('shake');
+    }
+    else{
+        $this.addClass('open');
+        $(window).on('shake',function(){
+            setColor();
+        })
+    }
+})
+
+//控制是否打开自动换色
+$('.setting .auto-change-color').on('click',function(){
+    $this = $(this)
+    if($this.hasClass('open')){
+        $this.removeClass('open');
+        clearInterval(clock);
+    }
+    else{
+        $this.addClass('open');
+        clock = setInterval(function(){
+            setColor();
+        }, 1500)
+    }
+})
 
 function adjustFontSize(){
     let $this = $('#text');

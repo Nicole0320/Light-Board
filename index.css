@@ -1,3 +1,9 @@
+ul,li{
+    list-style: none;
+    margin-right: 0; 
+    padding: 0;
+}
+
 .flip-container{
     display: block;
     position: fixed;
@@ -44,6 +50,24 @@ h1#text{
     font-style: normal;
     color: #666;
     font-size: 0.8em;
+}
+
+.back>.setting>li{
+    padding: 5px 20px;
+    width: 100px;
+    margin: 10px auto;
+    border: 1px solid #333;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.back>.setting>li:hover{
+    opacity: 0.7;
+}
+
+.back>.setting>li.open{
+    color: #eee;
+    background-color: #333;
 }
 
 #code>a{
